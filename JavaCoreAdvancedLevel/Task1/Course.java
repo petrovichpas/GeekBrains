@@ -1,44 +1,25 @@
 package JavaCoreAdvancedLevel.Task1;
 
-import JavaCoreAdvancedLevel.Task1.obstacle.Cross;
-import JavaCoreAdvancedLevel.Task1.obstacle.Wall;
-import JavaCoreAdvancedLevel.Task1.obstacle.Water;
+import JavaCoreAdvancedLevel.Task1.competitor.Competitor;
+import JavaCoreAdvancedLevel.Task1.obstacle.Obstacle;
 
 public class Course {
-    private Cross cross;
-    private Wall wall;
-    private Water water;
+    private Obstacle[] obstacles;
 
-    public Course(Cross cross, Wall wall, Water water) {
-        this.cross = cross;
-        this.wall = wall;
-        this.water = water;
+    public Course(Obstacle ... obstacles) {
+        this.obstacles = obstacles;
     }
 
-    public Cross getCross() {
-        return cross;
+    public Obstacle[] getObstacles() {
+        return obstacles;
     }
 
-    public Wall getWall() {
-        return wall;
-    }
-
-    public Water getWater() {
-        return water;
-    }
-
-    public void start (Team team) {
-        getCross().doIt(team.getHuman());
-        getWall().doIt(team.getHuman());
-        getWater().doIt(team.getHuman());
-
-        getCross().doIt(team.getCat());
-        getWall().doIt(team.getCat());
-        getWater().doIt(team.getCat());
-
-        getCross().doIt(team.getDog());
-        getWall().doIt(team.getDog());
-        getWater().doIt(team.getDog());
+    public void doIt(Team team) {
+        for (Obstacle o : obstacles){
+            for (Competitor c : team.getCompetitors()){
+                o.doIt(c);
+            }
+        }
         System.out.println("_______________________________________________________");
     }
 }
