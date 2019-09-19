@@ -1,6 +1,5 @@
 package JavaCoreAdvancedLevel.Task2;
 
-
 public class DayOfWeekMain {
 
     public enum DayOfWeek {
