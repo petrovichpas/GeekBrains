@@ -22,9 +22,7 @@ public class MyArray {
             for (int i = 0; i < arr.length; i++){
                 for (int j = 0; j < arr[1].length; j++){
                     try {
-                        if (Integer.parseInt(arr[i][j]) < 0 || Integer.parseInt(arr[i][j]) > 0) {
-                            sum += Integer.parseInt(arr[i][j]);
-                        }
+                        sum += Integer.parseInt(arr[i][j]);
                     }
                     catch (Exception e){
                         throw new MyArrayDataException("В ячейке " + i + j + " - NaN");
