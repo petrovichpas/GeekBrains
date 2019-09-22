@@ -15,7 +15,7 @@ public class MyArray {
     public static int getSumArr(String[][] arr) throws MyArraySizeException, MyArrayDataException {
         int sum = 0;
 
-        if (arr[0].length == 4 && arr[1].length == 4){
+        if (arr.length == 2 && arr[0].length == 4 && arr[1].length == 4){
             for (int i = 0; i < arr.length; i++){
                 for (int j = 0; j < arr[1].length; j++){
                     try {
