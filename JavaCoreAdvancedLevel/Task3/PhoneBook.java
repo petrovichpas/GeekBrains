@@ -1,9 +1,7 @@
 package Task3;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class PhoneBook {
@@ -21,9 +19,12 @@ public class PhoneBook {
         System.out.println(phoneBook.get(surname));
     }
 
-    public static void checkPassword(String password){
-        Pattern pattern = Pattern.compile("(?=.*?[0-9]) (?=.*?[a-z]) (?=.*?[A-Z]) \\S{8,}");
-        System.out.println(pattern.matcher(password));
+    // дополнительное задание
+    public static void checkPassword(){
+        String password = new Scanner(System.in).next();
+        Pattern pattern = Pattern.compile("^(?=.*?[0-9])(?=.*?[a-z])(?=.*?[A-Z])\\S{8,}$");
+        Matcher matcher = pattern.matcher(password);
+        System.out.println(matcher.matches());
     }
 
     public static void main(String[] args) {
@@ -31,6 +32,8 @@ public class PhoneBook {
         phoneBook.add("Petr", "8552895222", "877777777");
         phoneBook.add("Vaska", "8999999999");
         phoneBook.get("Petr");
-        // дополнительное задание "(?=.*[0-9]) (?=.*[a-z]) (?=.*[A-Z]) \\S{8,}"
+
+        // дополнительное задание
+        checkPassword();
     }
 }
