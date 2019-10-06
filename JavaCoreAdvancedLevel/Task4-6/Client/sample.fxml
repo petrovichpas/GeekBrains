@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<BorderPane fx:controller="Client.Controller" xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1">
+    <center>
+        <TextArea fx:id="taMessages" BorderPane.alignment="CENTER" />
+    </center>
+    <top>
+        <ChoiceBox nodeOrientation="LEFT_TO_RIGHT" prefWidth="150.0" BorderPane.alignment="TOP_LEFT" value="Готов общаться">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Готов общаться"/>
+                    <String fx:value="Отошел"/>
+                    <String fx:value="Недоступен"/>
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+    </top>
+    <bottom>
+        <HBox prefHeight="30.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <children>
+                <TextField fx:id="tfMessage" prefHeight="30.0" onAction="#sendMsg" promptText="Введите сообщение" HBox.hgrow="ALWAYS"/>
+                <Button fx:id="btnSend" prefHeight="30.0" minWidth="100.0" onAction="#sendMsg" text="Отправить" />
+            </children>
+        </HBox>
+    </bottom>
+    <right>
+        <VBox prefHeight="296.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <children>
+                <TextField fx:id="tfNick" promptText="Ваше имя" />
+                <TextArea fx:id="taParticipants" promptText="Участники" VBox.vgrow="ALWAYS" />
+            </children>
+        </VBox>
+    </right>
+</BorderPane>
