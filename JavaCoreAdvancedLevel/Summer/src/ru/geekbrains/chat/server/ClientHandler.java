@@ -39,6 +39,10 @@ public class ClientHandler {
                                     sendMsg("/authok");
                                     nick = newNick;
                                     server.subscribe(this);
+                                    for (String s : AuthService.getBlackList(AuthService.getId("nick3"))) {
+                                        System.out.println(s);
+                                    }
+
                                     break;
                                 } else {
                                     sendMsg("Учетная запись уже используется");
@@ -48,7 +52,6 @@ public class ClientHandler {
                             }
                         }
                     }
-                    blackList = AuthService.getBlackList(getNick());
 
                     while (true) {
                         String str = in.readUTF();
@@ -59,13 +62,14 @@ public class ClientHandler {
                             }
                             if (str.startsWith("/w ")) {
                                 String[] tokens = str.split(" ", 3);
-                                if (!AuthService.getBlackList(tokens[1]).contains(AuthService.getId(this.nick))) {
+                                if (!AuthService.getBlackList(AuthService.getId(tokens[1])).contains(AuthService.getId(getNick()))) {
                                     server.sendPersonalMsg(this, tokens[1], tokens[2]);
                                 }
+                                else sendMsg("Вы не можете писать " + tokens[1]);
                             }
                             if (str.startsWith("/blacklist ")) { // /blacklist nick3
                                 String[] tokens = str.split(" ");
-                                AuthService.addUserInBlacklist(AuthService.getId(this.nick), AuthService.getId(tokens[1]));
+                                AuthService.addUserInBlacklist(AuthService.getId(getNick()), AuthService.getId(tokens[1]));
                                 sendMsg("Вы добавили пользователя " + tokens[1] + " в черный список");
                             }
                         } else {
