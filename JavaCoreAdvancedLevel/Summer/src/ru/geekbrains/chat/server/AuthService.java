@@ -79,11 +79,10 @@ public class AuthService {
 
     public static List<String> getBlackList(String id) {
         List<String> blackList = new ArrayList<>();
-        String sql = String.format("SELECT blacklist.id_block_user FROM main Inner JOIN blacklist ON blacklist.id_user = main.id WHERE main.id = '%s'", id);
         try {
-            ResultSet resultSet = stmt.executeQuery(sql);
+            ResultSet resultSet = stmt.executeQuery("SELECT blacklist.id_block_user FROM main JOIN blacklist ON blacklist.id_user = main.id WHERE main.id = '" + id + "'");
             while (resultSet.next()) {
-                blackList.add(resultSet.getString(1));
+                blackList.add(resultSet.getString("id_block_user"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
