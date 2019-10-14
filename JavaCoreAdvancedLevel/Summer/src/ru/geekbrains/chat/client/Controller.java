@@ -159,8 +159,8 @@ public class Controller implements Initializable {
 
     public void selectClient(MouseEvent mouseEvent) {
         if(mouseEvent.getClickCount() == 2) {
-            MiniStage ms = new MiniStage(clientsList.getSelectionModel().getSelectedItem(), out, textAreas);
-            ms.show();
+            msgField.requestFocus();
+            msgField.setText("/w " + clientsList.getSelectionModel().getSelectedItem() + " ");
         }
     }
 }
