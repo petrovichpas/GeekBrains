@@ -39,10 +39,6 @@ public class ClientHandler {
                                     sendMsg("/authok");
                                     nick = newNick;
                                     server.subscribe(this);
-                                    for (String s : AuthService.getBlackList(AuthService.getId("nick3"))) {
-                                        System.out.println(s);
-                                    }
-
                                     break;
                                 } else {
                                     sendMsg("Учетная запись уже используется");
