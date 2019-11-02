@@ -15,8 +15,6 @@ public class Race {
     private CountDownLatch countDownLatch2;
     private Semaphore semaphore;
     private ReentrantLock reentrantLock;
-    CyclicBarrier cb = new CyclicBarrier(cars_count);
-
 
     public ArrayList<Stage> getStages() {
         return stages;
