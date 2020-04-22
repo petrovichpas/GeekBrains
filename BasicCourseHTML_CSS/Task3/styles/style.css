@@ -1,0 +1,49 @@
+body{
+    background-color: #f8f8f8;
+}
+
+#nameSite{
+    font-size: 30px;
+    font-family: "Times New Roman", sans-serif;
+    font-style: italic;
+}
+
+#menu{
+    list-style: none;
+    font-size: 20px;
+    font-family: fantasy, sans-serif;
+}
+
+.bodyProduct h3{
+    font-size: 18px;
+    font-weight: 400;
+    background-color: #eaeaea;
+}
+
+.bodyProduct > p{
+    color: #484343;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 24px;
+    text-align: left;
+}
+
+.bodyProduct ul {
+    list-style-image: url("../img/marker.png");
+    color: #707070;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    text-align: left;
+}
+
+input[type="text"] {
+    height: 15px;
+    width: 250px;
+    font-style: italic;
+}
+
+body img{
+    border: 1px solid black;
+}
