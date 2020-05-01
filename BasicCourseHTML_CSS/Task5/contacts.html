@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>ВелоМагаzz</title>
+        <link rel="stylesheet" href="styles/style.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="header">
+                <img src="img/logo.png">
+                <h1 class="siteName">ВелоМагаzz</h1>
+                <ul class="menu">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+
+            </div>
+
+            <h3>Контакты</h3>
+            <form action="userMessage.php" method="post">
+                <fieldset>
+                    <legend>Связаться с магазином</legend>
+                    <input type="text" name="userName" id="userName" placeholder="Ваше имя"><br>
+                    <input type="text" name="userEmail" id="userEmail" placeholder="Ваш Email"><br><br>
+                    <label>Ваше сообщение</label><br>
+                    <textarea name="userMessage" id="userMessage" cols="60" rows="5"></textarea><br>
+                    <button>Отправить</button>
+                </fieldset>
+            </form>
+
+            <p>
+                <b>Наш адрес:</b><br>
+                123308, Москва, ул. 3-я Хорошёвская, 20<br>
+                Теленфон: +7(495)777-66-55<br>
+                Email: velomagazz@vvv.ru
+            </p>
+
+            <script
+                    async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A5811dfb02e102be9660eac32109f5ac8d83c066cbc7554229c3c2937ec98e0ab&amp;width=100%&amp;height=374&amp;scroll=true">
+            </script>
+
+            <hr>
+            <div class="footer">
+                Copyright &copy; Все права защищены
+            </div>
+        </div>
+    </body>
+</html>

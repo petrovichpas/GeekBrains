@@ -1,0 +1,160 @@
+body{
+    background-color: #f8f8f8;
+    margin: 0;
+}
+
+.container{
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.header{
+    position: relative;
+    height: 96px;
+    background-image: url("../img/bg_header.jpg");
+}
+
+.header img{
+    margin: 5px 0 0 50px;
+    float: left;
+}
+
+.menu{
+    float: right;
+}
+
+.menu li{
+    display: inline-block;
+}
+
+.menu li a{
+    margin: 5px 10px 0 0;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: fantasy;
+}
+
+.menu li a:hover {
+    color: indianred;
+}
+
+.siteName{
+    position: absolute;
+    top: 28px;
+    left: 400px;
+    margin: 0;
+    font-size: 30px;
+    font-family: "Times New Roman", sans-serif;;
+    font-style: italic;
+}
+
+.product{
+    position: relative;
+}
+
+.productImg{
+    position: relative;
+    float: left;
+    width: 500px;
+}
+
+.description, .fullDescription{
+    position: relative;
+    left: 20px;
+}
+
+.buttonBuy{
+    position: relative;
+    left: 50px;
+}
+
+.buttonBuy:hover {
+    background-color: antiquewhite;
+}
+
+.specification{
+    margin-top: 130px;
+}
+
+.table{
+
+}
+
+.listOfProducts:after {
+    display: block;
+    clear: both;
+    content: '';
+}
+
+.listOfProducts img{
+    width: 400px;
+    height: 290px;
+}
+
+.item{
+    float: left;
+}
+
+.item:nth-child(n+3) {
+    margin-top: 40px;
+}
+
+.item:not(:nth-child(2n)) {
+    margin-right: 20px;
+}
+
+.bodyProduct h3{
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.bodyProduct > p{
+    color: #484343;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 24px;
+    text-align: left;
+}
+
+.bodyProduct ul {
+    list-style-image: url("../img/marker.png");
+    color: #707070;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    text-align: left;
+}
+
+
+.bodyProduct p:first-letter{
+    font-weight: bold;
+    font-style: normal;
+    color: red;
+}
+
+input[type="text"] {
+    height: 15px;
+    width: 250px;
+    font-style: italic;
+    text-transform: capitalize;
+}
+
+input[type="text"]:focus {
+    color: orange;
+    background-color: gray;
+}
+
+table, td{
+    border-collapse: collapse;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.footer{
+    height: 50px;
+    background-color: aqua;
+    text-align: right;
+    padding: 15px 15px 0 0;
+}
+
