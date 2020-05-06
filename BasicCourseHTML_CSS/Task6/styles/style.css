@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,700;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,700;1,700&family=Roboto:wght@700&display=swap');
+
+body{
+    margin: 0 auto;
+    width: 1170px;
+    background: #b0d9e1;
+}
+
+.header {
+    height: 700px;
+    background:url(../images/indexBack.jpg) no-repeat top/cover;
+
+}
+
+.header .container {
+    position: relative;
+    height: inherit;
+    width: 1170px;
+    margin: 0 auto;
+}
+
+.logo {
+    position: absolute;
+    left: 70px;
+    top: 24px;
+}
+
+.socialIcons {
+    position: absolute;
+    width: 130px;
+    right: 66px;
+    top: 44px;
+}
+
+.topText {
+    position: relative;
+    top: 240px;
+    left: 740px;
+    width: 330px;
+    height: 292px;
+}
+
+.topText .bigTopText {
+    font-family: "Raleway", sans-serif;
+    font-size: 48px;
+    font-weight: bold;
+    line-height: 0.708;
+    color: #fff51f;
+}
+
+.topText .smallTopText {
+    font-family: "Raleway", sans-serif;
+    font-size: 18px;
+    color: #fff51f;
+    margin-top: 10px;
+}
+
+.buyButton {
+    height: 50px;
+    width: 125px;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: "Raleway", sans-serif;
+    background: #fff51f;
+    border: none;
+    margin-top: 65px;
+}
+
+.welcomeWrap {
+    background-color: #fff51f;
+    position: absolute;
+    top: 336px;
+    width: 270px;
+    height: 300px;
+}
+
+.welcomeTitle {
+    position: absolute;
+    font-size: 30px;
+    font-family: "Raleway", sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    left: 28px;
+    top: 89px;
+    line-height: 1;
+}
+
+.welcomeText {
+    position: absolute;
+    font-size: 18px;
+    font-family: "Raleway", sans-serif;
+    font-weight: bold;
+    line-height: 0.778;
+    text-align: left;
+    font-style: italic;
+    left: 28px;
+    top: 170px;
+}
+
+.contentWrap {
+    width: 1170px;
+    margin: 0 auto;
+    background: #f8f8f8;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contentLeft {
+    width: 270px;
+    height: 475px;
+}
+
+.contentLeft .menu {
+    height: 66px;
+    background: #333333;
+    color: #fff;
+    padding-left: 45px;
+    line-height: 66px;
+    font-family: "Roboto", sans-serif;
+}
+.contentLeft .menuItems div{
+    height: 45px;
+    line-height: 45px;
+    padding-left: 45px;
+    background: #26d2fc;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+}
+
+.contentLeft .menuItems div:hover{
+    background: #333333;
+    color: #fff;
+}
+
+.contentLeft .nowOpen {
+    background:url(../images/store.jpg);
+    box-sizing: border-box;
+    border: 5px solid white;
+    height: 300px;
+    margin-top: 30px;
+    font-size: 30px;
+    font-family: "Roboto", sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    padding: 150px 0 0 150px;
+}
+
+.contentRight {
+    width: 870px;
+    height: 750px;
+    padding: 20px 0 0 0;
+    font-size: 22px;
+    font-family: "Roboto", sans-serif;
+    color: rgb(112, 112, 112);
+    font-style: italic;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+.contentRight .newProductItem{
+    float: left;
+    width: 270px;
+    height: 320px;
+    background: #fff;
+}
+
+.preFooter {
+    width: 1170px;
+    margin: 0 auto;
+    background: white;
+}
+
+.preFooter .brands {
+    display: flex;
+    padding: 30px 0 30px 0;
+    justify-content: space-between;
+}
+
+.preFooter .instaFeed {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    height: 350px;
+    padding-top: 50px;
+    justify-content: center;
+    background: #eaeaea;
+    color: #333;
+    font-size: 22px;
+    font-family: "Roboto", sans-serif;
+    font-style: italic;
+}
+
+.instaFeedSocial {
+    height: 150px;
+    font-size: 66px;
+    color: white;
+    text-align: center;
+}
+
+.instaFeedSocial i:nth-child(1) {
+    background: #3b5997;
+    line-height: 150px;
+    width: 390px;
+    height: inherit;
+}
+
+.instaFeedSocial i:nth-child(2) {
+    background: #3fccfd;
+    line-height: 150px;
+    width: 390px;
+    height: inherit;
+}
+
+.instaFeedSocial i:nth-child(3) {
+    background: #cb2027;
+    line-height: 150px;
+    width: 390px;
+    height: inherit;
+}
+
+.footer{
+    width: 1170px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    background: #333;
+    height: 48px;
+    font-size: 12px;
+    font-family: "Roboto", sans-serif;
+    color: #dad9d9;
+    line-height: 1.8;
+    box-sizing: border-box;
+    padding: 15px 20px 0 20px;
+
+}
+
+
+
+
