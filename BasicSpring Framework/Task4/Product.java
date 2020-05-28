@@ -3,6 +3,8 @@ package ru.geekbrains.persist.entity;
 import javax.persistence.*;
 import java.math.BigDecimal;
 
+@NoArgsConstructor
+@Data
 @Entity
 @Table(name = "goods_tbl")
 public class Product {
@@ -10,42 +12,14 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true)
+    @Column(length = 64, nullable = false)
     private String title;
 
-    @Column
+    @Column(nullable = false)
     private BigDecimal price;
-
-
-    public Product() {
-    }
 
     public Product(String title, BigDecimal price) {
         this.title = title;
-        this.price = price;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 }
