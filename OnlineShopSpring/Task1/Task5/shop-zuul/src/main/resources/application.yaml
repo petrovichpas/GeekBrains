@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: shop-zuul
+zuul:
+  ignoredServices: "*"
+  routes:
+    picture-service:
+      path: /picture/**
+      sensitiveHeaders:
+      serviceId: PICTURE-SERVICE
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    fetchRegistry: true
