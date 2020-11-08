@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru" ng-app="cookStarter">
+    <head>
+        <meta charset="UTF-8">
+        <title>Корзина</title>
+    </head>
+
+    <body ng-controller="cartCtrl">
+
+    <button ng-click="login()" type="submit">Login</button>
+
+    <div ng-hide="dishesList.length == 0">
+        <table>
+            <thead>
+                <tr>
+                    <th>Блюдо</th>
+                    <th>Цена</th>
+                    <th colspan="3">Количество</th>
+                    <th>Сумма</th>
+                    <th>Изображение</th>
+                </tr>
+            </thead>
+
+            <tr ng-repeat="ds in dishesList">
+                <td>{{ds.name}}</td>
+                <td>{{ds.price}}</td>
+                <td><button ng-click="minusOne()" type="submit">-</button></td>
+                <td>{{dishQuantity}}</td>
+                <td><button ng-click="plusOne()" type="submit">+</button></td>
+                <td>{{ds.price * dishQuantity}}</td>
+                <td> <img width="100" height="100" ng-src="{{ds.picture}}"></td>
+    <!--                потом заменить-->
+    <!--            <td><img ng-src="http://localhost:8087/{{restaurant.picture}}"></td>-->
+                <td><button ng-click="delete(ds)" type="submit">Удалить</button></td>
+                <td><button ng-click="addToCart(ds.id, ds.name, ds.price, ds.picture, 1)" type="submit">Add to cart</button></td>
+            </tr>
+        </table>
+
+        <h2>Сумма заказа {{totalSum}}</h2>
+    </div>
+
+    <!--test-->
+    <table>
+        <thead>
+        <tr>
+            <th>Блюдо</th>
+            <th>Цена</th>
+            <th colspan="3">Количество</th>
+            <th>Сумма</th>
+            <th>Изображение</th>
+        </tr>
+        </thead>
+
+        <tr ng-repeat="ds in cartData">
+            <td>{{ds.name}}</td>
+            <td>{{ds.price}}</td>
+            <td><button ng-click="minusOne(ds)" type="submit">-</button></td>
+            <td>{{ds.count}}</td>
+            <td><button ng-click="plusOne(ds)" type="submit">+</button></td>
+            <td>{{ds.price * ds.count}}</td>
+            <td> <img width="100" height="100" ng-src="{{ds.picture}}"></td>
+            <td><button ng-click="delete(ds)" type="submit">Удалить</button></td>
+        </tr>
+    </table>
+    <!--/test-->
+
+    <h2 ng-hide="dishesList.length > 0">Ваша корзина пуста.</h2>
+
+    <button ng-click="createOrder(customerId, restaurantId, status, dateCreated, dishes)" type="submit">Оформить заказ</button>
+    </body>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+    <script  type="text/javascript" src="js/cart.js"></script>
+</html>
