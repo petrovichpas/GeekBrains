@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru" ng-app="cookStarter">
+    <head>
+        <meta charset="UTF-8">
+        <title>Меню ресторана</title>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular-route.js"></script>
+        <script  type="text/javascript" src="main.js"></script>
+    </head>
+
+    <body ng-controller="mainCtrl">
+
+        <h1 >Меню {{restaurant.name}}</h1>
+        <button ng-click="login()" type="submit">Login</button>
+        <a href="" ng-click="showBlock = !showBlock">В корзине {{cartData.length}}</a>
+
+        <div ng-show="!showBlock">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Блюдо</th>
+                        <th>Цена</th>
+                        <th>Описание</th>
+                        <th>Изображение</th>
+                    </tr>
+                </thead>
+
+                <tr ng-repeat="dish in dishesList">
+                    <td>{{dish.name}}</td>
+                    <td>{{dish.price}}</td>
+                    <td>{{dish.description}}</td>
+                    <td> <img width="100" height="100" ng-src="https://picture-service.herokuapp.com/picture/menu/get/{{dish.pictureId}}?Authorization={{token}}"></td>
+                    <td><button ng-click="addToCart(dish, 1)" type="submit">Add to cart</button></td>
+                </tr>
+            </table>
+        </div>
+
+<!--    ======================================================================================================================-->
+
+        <div ng-hide="cartData.length == 0">
+            <div>_______________________________________________________________</div>
+            <table>
+                <thead>
+                <tr>
+                    <th>Блюдо</th>
+                    <th>Цена</th>
+                    <th colspan="3">Количество</th>
+                    <th>Описание</th>
+                    <th>Изображение</th>
+                </tr>
+                </thead>
+
+                <tr ng-repeat="dish in cartData">
+                    <td>{{dish.name}}</td>
+                    <td>{{dish.price}}</td>
+                    <td><button ng-click="minusOne(dish)" type="submit">-</button></td>
+                    <td>{{dish.quantity}}</td>
+                    <td><button ng-click="plusOne(dish)" type="submit">+</button></td>
+                    <td>{{dish.description}}</td>
+                    <td> <img width="100" height="100" ng-src="https://picture-service.herokuapp.com/picture/menu/get/{{dish.pictureId}}?Authorization={{token}}"></td>
+                    <td><button ng-click="delete(dish)" type="submit">Удалить</button></td>
+                </tr>
+            </table>
+
+            <h2>Сумма заказа {{totalSum}}</h2>
+            <button ng-click="addOrder(cartData, 1)" type="submit">Оформить заказ</button>
+        </div>
+
+        <h2 ng-hide="cartData.length > 0">Ваша корзина пуста.</h2>
+    </body>
+</html>
