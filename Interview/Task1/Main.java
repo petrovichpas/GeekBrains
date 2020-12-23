@@ -1,16 +1,20 @@
+package Task2;
 
 public class Main {
     public static void main(String[] args) {
-        Person person = new Person.PersonBuilder().addFirstName("Valentin").addCountry("RU").addAge(30).build();
-        Person person2 = new Person.PersonBuilder().addLastName("Ivanov").addCountry("GB").addAge(33).build();
-        System.out.println(person.getCountry());
-        System.out.println(person2.getCountry());
+        MyLinkedList<String> mll = new MyLinkedList<>();
+        mll.insertFirst("1");
+        mll.insertFirst("2");
+        mll.insertLast("3");
+        System.out.println(mll);
+        mll.remove("1");
+        System.out.println(mll);
 
-        Figures f = new Figures();
-        f.draw(new Figures().new Square());
-        f.draw(new Figures().new Circle());
-        f.draw(new Figures().new Triangle());
+        MyArrayList<String> ab = new MyArrayList<>();
+        ab.add("A");
+        ab.add("B");
+        System.out.println(ab.get(0) + ab.get(1));
+        ab.remove("A");
+        System.out.println(ab.get(0));
     }
 }
-
-
