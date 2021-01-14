@@ -1,0 +1,69 @@
+CREATE SCHEMA `cinema` ;
+
+CREATE TABLE `cinema`.`movies_tbl` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) NOT NULL,
+  `duration` TINYINT UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`));
+
+CREATE TABLE `cinema`.`tickets_tbl` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `movie_id` INT UNSIGNED NOT NULL,
+  `date_time` DATETIME NOT NULL,
+  `price` DECIMAL(10,2) UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`),
+INDEX `fk_ticket_id_idx` (`movie_id` ASC) VISIBLE,
+  CONSTRAINT `fk_ticket_id`
+    FOREIGN KEY (`movie_id`)
+    REFERENCES `cinema`.`movies_tbl` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
+
+
+CREATE TABLE `cinema`.`orders_tbl` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `movie_id` INT UNSIGNED NOT NULL,
+  `number` VARCHAR(255) NOT NULL,
+  `ticket_id` INT UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`),
+INDEX `fk_order_id_idx` (`movie_id` ASC) VISIBLE,
+  CONSTRAINT `fk_order_id`
+    FOREIGN KEY (`movie_id`)
+    REFERENCES `cinema`.`movies_tbl` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
+
+
+INSERT INTO cinema.movies_tbl (name, duration) VALUES ('Красная шапочка', 60), ('Красотка', 90), ('Гладиатор', 120);
+
+INSERT INTO cinema.tickets_tbl (movie_id, date_time, price) VALUES
+(1, '2020-12-29 10:00:00', 300), 
+(2, '2020-12-29 10:00:00', 300),
+(3, '2020-12-29 13:00:00', 300),
+(1, '2020-12-30 10:00:00', 300),
+(2, '2020-12-30 19:00:00', 500),
+(3, '2020-12-30 20:00:00', 600),
+(3, '2020-12-30 20:30:00', 600);
+
+INSERT INTO cinema.orders_tbl (movie_id, number) VALUES
+(1, 'К001', 1),
+(2, 'К002', 2), 
+(3, 'К003', 3), 
+(2, 'К004', 1), 
+(2, 'К005', 2), 
+(3, 'К006', 3), 
+(3, 'К007', 3), 
+(3, 'К008', 7),
+(3, 'К009', 6); 
+
+
+SELECT name, date_time, duration FROM movies_tbl JOIN tickets_tbl ON movies_tbl.id = tickets_tbl.movie_id ORDER BY date_time;
+
+SELECT date_time, duration FROM cinema.movies_tbl JOIN cinema.tickets_tbl ON movies_tbl.id = tickets_tbl.movie_id ORDER BY date_time;
+
+SELECT name, COUNT(movies_tbl.id) AS 'общ. число пос.', AVG(movies_tbl.id) AS 'ср. число пос.', SUM(price)
+FROM movies_tbl JOIN tickets_tbl ON movies_tbl.id = tickets_tbl.movie_id GROUP BY movies_tbl.id ORDER BY SUM(price) DESC;
+
+SELECT date_time, COUNT(number) AS 'Посетители', SUM(price) AS 'Сборы' FROM movies_tbl JOIN tickets_tbl JOIN orders_tbl 
+ON movies_tbl.id = tickets_tbl.movie_id AND orders_tbl.ticket_id = tickets_tbl.id GROUP BY date_time;
+
